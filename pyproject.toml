@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "poetry-dev"
-version = "0.1.0"
+version = "0.1.1"
 description = "A collection of scripts replace local packages with versions and vice versa"
 authors = ["Marc Rijken <marc@rijken.org>"]
 license = "MIT"
+repository = "https://github.com/mrijken/poetry-dev"
+readme = "README.md"
 packages = [
     { include = "poetry_dev" },
 ]
