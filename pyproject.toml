@@ -3,6 +3,10 @@ name = "poetry-dev"
 version = "0.1.0"
 description = "A collection of scripts replace local packages with versions and vice versa"
 authors = ["Marc Rijken <marc@rijken.org>"]
+license = "MIT"
+packages = [
+    { include = "poetry_dev" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
