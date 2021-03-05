@@ -1,5 +1,7 @@
 # poetry-dev
 
+![Build](https://github.com/mrijken/poetry-dev/workflows/CI/badge.svg)
+
 When developing multiple Python packages concurrently with Poetry manageed environments you
 can install the local package as path requirements. Ie when you develop `bar`
 which have `foo` as dependency, which you also want to edit, you can
