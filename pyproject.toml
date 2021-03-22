@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poetry-dev"
-version = "0.1.2"
+version = "0.1.3"
 description = "A collection of scripts replace local packages with versions and vice versa"
 authors = ["Marc Rijken <marc@rijken.org>"]
 license = "MIT"
