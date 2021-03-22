@@ -84,7 +84,7 @@ def version():
 
 
 @app.command()
-def path():
+def path(develop: bool = typer.Option(True, help="Install path dependencies in develop mode")):
     """
     Replace all version dependencies with a path dependency in pyproject.toml (when ../dep_name exists)
     """
@@ -98,6 +98,7 @@ def path():
             changed_dependencies[name] = dependencies[name]
             del changed_dependencies[name]["version"]
             changed_dependencies[name]["path"] = f"../{name}"
+            changed_dependencies[name]["develop"] = develop
             typer.echo(f"{name}: Changing version requirement {req['version']} to path requirement../{name}")
 
     set_changed_dependencies(changed_dependencies)
