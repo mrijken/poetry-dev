@@ -17,7 +17,7 @@ tomlkit = "^0.7.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.0.2"
-pytest-cov = "^2.11.1"
+pytest-cov = "^2.12.0"
 
 [tool.poetry.scripts]
 poetry_dev = 'poetry_dev:app'
