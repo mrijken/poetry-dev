@@ -75,7 +75,7 @@ def version():
     for name, req in dependencies.items():
         if isinstance(req, dict) and "path" in req and get_pyproject_path(pathlib.Path(req["path"])).exists():
             version_req = "^" + get_version(pathlib.Path(req["path"]))
-            changed_dependencies[name] = dependencies[name]
+            changed_dependencies[name] = dependencies[name].copy()
             del changed_dependencies[name]["path"]
             changed_dependencies[name]["version"] = req["version"] = version_req
             typer.echo(f"{name}: Changing path requirement ../{name} to version requirement {req['version']}")
@@ -95,7 +95,7 @@ def path(develop: bool = typer.Option(True, help="Install path dependencies in d
             dependencies[name] = req = {"version": req}
 
         if "path" not in req and get_pyproject_path(pathlib.Path("..") / name).exists():
-            changed_dependencies[name] = dependencies[name]
+            changed_dependencies[name] = dependencies[name].copy()
             del changed_dependencies[name]["version"]
             changed_dependencies[name]["path"] = f"../{name}"
             changed_dependencies[name]["develop"] = develop
