@@ -54,7 +54,7 @@ build-backend = "poetry.masonry.api"
 
     result = runner.invoke(app, ["path"])
     assert result.exit_code == 0
-    assert """foo = {path = "../foo"}""" in bar_pyproject_toml.read_text()
+    assert """foo = {path = "../foo", develop = true}""" in bar_pyproject_toml.read_text()
 
 
 def test_version(tmp_path: pathlib.Path, monkeypatch):
