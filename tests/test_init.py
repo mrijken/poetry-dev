@@ -11,17 +11,18 @@ from poetry_dev import app
 runner = CliRunner()
 
 
-def test_path(tmp_path: pathlib.Path, monkeypatch):
+@pytest.mark.parametrize("spec", ["\"0.1.0\"", "{version = \"0.1.0\"}"])
+def test_path(tmp_path: pathlib.Path, monkeypatch, spec: str):
 
     bar_pyproject_toml = tmp_path / "bar_pyproject_toml"
     bar_pyproject_toml.write_text(
-        """[tool.poetry]
+        f"""[tool.poetry]
 name = "bar"
 version = "0.2.0"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-foo = "0.1.0"
+foo = {spec}
 
 [build-system]
 requires = ["poetry>=0.12"]
@@ -52,7 +53,7 @@ build-backend = "poetry.masonry.api"
     monkeypatch.setattr(poetry_dev, "get_pyproject_path", get_pyproject_path)
     monkeypatch.setattr(subprocess, "call", lambda _: None)
 
-    result = runner.invoke(app, ["path"])
+    result = runner.invoke(app, ["path"], catch_exceptions=False)
     assert result.exit_code == 0
     assert """foo = {path = "../foo", develop = true}""" in bar_pyproject_toml.read_text()
 
