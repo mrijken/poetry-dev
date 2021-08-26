@@ -77,6 +77,7 @@ def version():
             version_req = "^" + get_version(pathlib.Path(req["path"]))
             changed_dependencies[name] = dependencies[name].copy()
             del changed_dependencies[name]["path"]
+            changed_dependencies[name].pop("develop")
             changed_dependencies[name]["version"] = req["version"] = version_req
             typer.echo(f"{name}: Changing path requirement ../{name} to version requirement {req['version']}")
 
