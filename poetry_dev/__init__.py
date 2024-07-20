@@ -4,9 +4,12 @@ command line interface definitions
 import pathlib
 import subprocess
 from typing import Dict, Union
+import warnings
 
 import tomlkit
 import typer
+
+warnings.warn("This package is not maintained anymore", DeprecationWarning)
 
 app = typer.Typer()
 
