@@ -1,5 +1,7 @@
 # poetry-dev
 
+This package is not maintained anymore
+
 ![Build](https://github.com/mrijken/poetry-dev/workflows/CI/badge.svg)
 
 When developing multiple Python packages concurrently with Poetry manageed environments you
