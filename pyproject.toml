@@ -1,14 +1,12 @@
 [tool.poetry]
 name = "poetry-dev"
-version = "0.1.4"
+version = "0.2.3"
 description = "A collection of scripts replace local packages with versions and vice versa"
 authors = ["Marc Rijken <marc@rijken.org>"]
 license = "MIT"
 repository = "https://github.com/mrijken/poetry-dev"
 readme = "README.md"
-packages = [
-    { include = "poetry_dev" },
-]
+packages = [{ include = "poetry_dev" }]
 
 [tool.poetry.dependencies]
 python = "^3.6"
